@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+  margin: 0;
+  }
+
+html, body, #map {
+  height: 100%;
+  width: 100%;
+  border: solid 2px black;
+}
+
+.leaflet-control-zoom-in {
+  color: green !important;
+}
+
+.leaflet-control-zoom-out {
+  color: orange !important;
+}
+
+
+#selector_menu{
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  z-index: 9000;
+}
+#getZoomButton {
+     position: absolute;
+     top: 18px;
+     left: 20px;
+     z-index: 1001;
+ }

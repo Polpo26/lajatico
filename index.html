@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Template</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Downloaded Version of Leaflet - https://leafletjs.com/download.html -->
+    <!-- leaflet.css -->
+    <link rel="stylesheet" href="/css/leaflet.css" />
+    <!-- css -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/plugins/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="css/plugins/L.Control.ZoomBar.css" />
+    <link rel="stylesheet" href="css/plugins/L.Control.Locate.css" />
+    <link rel="stylesheet" href="css/plugins/leaflet.fullscreen.css" />
+    <link rel="stylesheet" href="css/plugins/leaflet.awesome-markers.css" />
+    <!-- <link rel="stylesheet" href="css/plugins/leaflet.draw.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+
+    <!-- ionicon stylesheet -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+
+    <!-- leaflet.js -->
+    <script src="/js/leaflet.js"></script>
+
+    <!-- jquery3.1.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- turf@5 -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+    <!-- bootstrap-->
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+    <!-- data -->
+    <script src="data/lajatico_wgs84.js"></script>
+
+  </head>
+  <body>
+    <!-- optionally define the sidebar content via HTML markup -->
+    <div id="sidebar" class="leaflet-sidebar collapsed">
+
+        <!-- nav tabs -->
+        <div class="leaflet-sidebar-tabs">
+            <!-- top aligned tabs -->
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars active"></i></a></li>
+                <li><a href="#autopan" role="tab"><i class="fa fa-arrows"></i></a></li>
+            </ul>
+
+            <!-- bottom aligned tabs -->
+            <ul role="tablist">
+                <!-- <li><a href="https://github.com/nickpeihl/leaflet-sidebar-v2"><i class="fa fa-github"></i></a></li> -->
+            </ul>
+        </div>
+
+        <!-- panel content -->
+        <div class="leaflet-sidebar-content">
+            <div class="leaflet-sidebar-pane" id="home">
+                <h1 class="leaflet-sidebar-header">
+                    Info Lajatico
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p>
+                  <b>Lajatico</b> is a <i><a href="/wiki/Comune" title="Comune">comune</a></i> (municipality) in the <a href="/wiki/Province_of_Pisa" title="Province of Pisa">Province of Pisa</a> in the <a href="/wiki/Italy" title="Italy">Italian</a> region <a href="/wiki/Tuscany" title="Tuscany">Tuscany</a>, located about 50 kilometres (31&#160;mi) southwest of <a href="/wiki/Florence" title="Florence">Florence</a> and about 40 kilometres (25&#160;mi) southeast of <a href="/wiki/Pisa" title="Pisa">Pisa</a>.   Lajatico sits in mainly hilly terrain at variable elevations from 100 to 650 metres (330 to 2,130&#160;ft) above sea level) and dominates the end of the <a href="/wiki/Valdera" title="Valdera">Valdera</a> valley and the opening of the valley known as Val di Cecina.
+                  </p><p><a href="/wiki/La_Sterza" title="La Sterza">La Sterza</a>, one of its hamlets (<a href="/wiki/Frazioni" class="mw-redirect" title="Frazioni">frazioni</a>), is the natural door between these two geographical areas. The Sterza, <a href="/wiki/Era_(river)" title="Era (river)">Era</a>, and the Ragone rivers form natural borders, placing Lajatico in a very central position to reach <a href="/wiki/Tuscany" title="Tuscany">Tuscan</a> cities and seaside resorts.<sup id="cite_ref-ReferenceA_4-0" class="reference"><a href="#cite_note-ReferenceA-4">&#91;4&#93;</a></sup> Lajatico is, however, best known as the home town of tenor <a href="/wiki/Andrea_Bocelli" title="Andrea Bocelli">Andrea Bocelli</a>. His annual concerts at the <a href="/wiki/Teatro_del_Silenzio" title="Teatro del Silenzio">Teatro del Silenzio</a> are attended by people from all around the world, every year.
+                  </p><p>Lajatico has the following hamlets (frazioni) associated with it: <a href="/wiki/Orciatico" title="Orciatico">Orciatico</a>, an ancient small <a href="/wiki/Medieval" class="mw-redirect" title="Medieval">medieval</a> village; <a href="/wiki/San_Giovanni_di_Val_d%27Era" title="San Giovanni di Val d&#39;Era">San Giovanni di Val d'Era</a>; and <a href="/wiki/La_Sterza" title="La Sterza">La Sterza</a>. Another small locality is Spedaletto, a stomping ground of <a href="/wiki/Lorenzo_de%27_Medici" title="Lorenzo de&#39; Medici">Lorenzo de' Medici</a>.<sup id="cite_ref-ReferenceA_4-1" class="reference"><a href="#cite_note-ReferenceA-4">&#91;4&#93;</a></sup> Lajatico borders the following municipalities: <a href="/wiki/Chianni" title="Chianni">Chianni</a>, <a href="/wiki/Montecatini_Val_di_Cecina" title="Montecatini Val di Cecina">Montecatini Val di Cecina</a>, <a href="/wiki/Peccioli" title="Peccioli">Peccioli</a>, <a href="/wiki/Riparbella" title="Riparbella">Riparbella</a>, <a href="/wiki/Terricciola" title="Terricciola">Terricciola</a>, <a href="/wiki/Volterra" title="Volterra">Volterra</a>.
+                </p>
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="autopan">
+                <h1 class="leaflet-sidebar-header">
+                    autopan
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p>
+                    <code>Leaflet.control.sidebar({ autopan: true })</code>
+                    makes shure that the map center always stays visible.
+                </p>
+                <p>
+                    The autopan behviour is responsive as well.
+                    Try opening and closing the sidebar from this pane!
+                </p>
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="messages">
+                <h1 class="leaflet-sidebar-header">Messages<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+        </div>
+    </div>
+
+<!-- Leafet MAP Containner -->
+    <div id="map"></div>
+    <!-- <button id="getZoomButton" onclick="getCenterAndZoom();">Get Center and Zoom</button> -->
+
+    <!-- Plugins -->
+    <script src="/js/plugins/sidebarV2/leaflet-sidebar.js"></script>
+    <script src="/js/plugins/easyPrint/bundle.js"></script>
+    <script src="/js/plugins/zoomControl/L.Control.ZoomBar.js"></script>
+    <script src="/js/plugins/leaflet-locatecontrol/L.Control.Locate.min.js"></script>
+    <script src="/js/plugins/fullScreen/Leaflet.fullscreen.js"></script>
+    <script src="/js/plugins/awesome-markers/leaflet.awesome-markers.js"></script>
+    <!-- <script src="/js/plugins/draw/Leaflet.draw.js"></script> -->
+    <!-- https://cdnjs.com/libraries/leaflet.draw -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+
+    <script type="text/javascript">
+
+      var map = L.map('map', {
+        center: [43.46359,10.79183],
+        zoomControl: false,
+        zoom: 12,
+        minZoom: 8,
+        maxBounds: [
+        [43.39233,10.52765],
+        [43.53685, 11.03371]
+        ],
+        drawControl: true,
+      // measureControl: true,
+        fullscreenControl: {
+          pseudoFullscreen: false
+        },
+
+      });
+
+
+
+    </script>
+        <script src="/js/layers.js"></script>
+        <script src="/js/scalebar.js"></script>
+        <script src="/js/sidebar.js"></script>
+        <script src="/js/print.js"></script>
+        <script src="/js/zoom.js"></script>
+        <script src="/js/locateControl.js"></script>
+        <script src="/js/showCoordinates.js"></script>
+        <script src="/js/showUrl.js"></script>
+        <script src="/js/markers.js"></script>
+        <script src="/js/editableLayers.js"></script>
+
+  </body>
+</html>
